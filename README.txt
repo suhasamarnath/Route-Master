@@ -4,4 +4,4 @@ lets the Drivers enter all their details like Name, Phone number, Bus Number, Ro
 
 to travel can view all the buses available with timings and number of seats available. So, the employees can book tickets according to
 
-their convenience.
+their convenience and the ticket gets printed specifying all the required information.

@@ -7,11 +7,11 @@ class Driver:
 
     dest_list = []
 
-    def __init__(self, driver_name, driver_phone, bus_number, destination, time, seats):
+    def __init__(self, driver_name, driver_phone, bus_number, route, time, seats):
         self.driver_name = driver_name
         self.driver_phone = driver_phone
         self.bus_number = bus_number
-        self.destination = destination
+        self.route = route
         self.time = time
         self.seats = seats
 
@@ -69,12 +69,12 @@ class Employee:
             print("Enter a valid phone number")
 
     def correct_dest(dest, employee_name, employee_phone, employee_department, department_id):
-        if any(obj.destination == dest for obj in Driver.list1):
+        if any(obj.route == dest for obj in Driver.list1):
             Employee.list2.append(Employee(
                 employee_name, employee_phone, employee_department, department_id, dest))
             return False
         else:
-            print("Enter a valid destination")
+            print("Enter a valid route")
             return True
 
     def correct_bus(busno):
@@ -90,7 +90,7 @@ class Employee:
         print("\nDriver name: ", temp.driver_name)
         print("Bus number: ", temp.bus_number)
         print("Departue Time: ", temp.time)
-        print("Destination: ", temp.destination)
+        print("Route: ", temp.route)
         print("Driver phone number: ", temp.driver_phone)
         print("_" * 30)
         print("\nYour information:-")

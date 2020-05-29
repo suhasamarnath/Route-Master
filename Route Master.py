@@ -2,6 +2,11 @@ from tabulate import tabulate
 
 
 class Driver:
+"""
+Driver is a class with methods update, correct_phone, correct_bus,
+seats booking with attributes driver_name, driver_phone, bus_number, route etc.,
+
+"""
 
     list1 = []
 
@@ -14,9 +19,19 @@ class Driver:
         self.route = route
         self.time = time
         self.seats = seats
+        """
+        Constructor method to initialise all the variables
+        for which the data has to be entered by the driver.
+
+        """
 
     def update(self, seats, seats_booked):
         self.seats = seats - seats_booked
+    """
+    update method updates the total number of seats avaiable once it gets
+    booked by the employee.
+
+    """
 
     def correct_phone(phno):
         if len(str(phno)) == 10:
@@ -27,6 +42,11 @@ class Driver:
                 return False
         else:
             print("Enter a valid phone number")
+    """
+     correct_phone method checks if the phone number is valid or not by the
+     basic criteria of 10 digits.
+
+    """
 
     def correct_bus(busno):
         if any(obj.bus_number == busno for obj in Driver.list1):
@@ -34,6 +54,11 @@ class Driver:
             return True
         else:
             return False
+    """
+    correct_bus method compares the bus number entered with the previous
+    buses recorded so that a valid bus number is entered.
+
+    """
 
     def seats_booking(self, obj, seatsbooked):
         self.obj = obj
@@ -45,9 +70,21 @@ class Driver:
             if obj.seats == 0:
                 print("All seats in this bus have now been booked")
             return False
+    """
+    seats_booking method checks if the number of seats to be booked is greater
+    than the available seats and lets the employee know when all the seats of the
+    bus have been booked
+
+    """
 
 
 class Employee:
+"""
+Employee is a class containing methods correct_phone, correct_dest, correct_bus, display with
+attributes employee_name, employee_phone, employee_department department_id, where_to, phno,
+dest etc.,
+
+"""
 
     list2 = []
 
@@ -57,6 +94,11 @@ class Employee:
         self.employee_department = employee_department
         self.department_id = department_id
         self.where_to = where_to
+    """
+    Constructor method to initialise all the variables
+    for which the data has to be entered by the employee.
+
+    """
 
     def correct_phone(phno):
         if len(str(phno)) == 10:
@@ -76,6 +118,11 @@ class Employee:
         else:
             print("Enter a valid route")
             return True
+    """
+    correct_dest method checks if the entered route matches with the
+    available route.
+
+    """
 
     def correct_bus(busno):
         if any(obj.bus_number == busno for obj in Driver.list1):
@@ -83,6 +130,11 @@ class Employee:
         else:
             print("Enter a valid bus Number")
             return True
+    """
+    correct_bus method checks if the employee has entered the right bus
+    number to book the tickets of the particular bus.
+
+    """
 
     def display(temp, employee_name, employee_phone, employee_department, department_id, seatsbooked):
         print("\nYour seats have been booked!")
@@ -99,3 +151,4 @@ class Employee:
         print("Department: ", employee_department)
         print("ID: ", department_id)
         print("Total seats booked: ", seatsbooked)
+    # display method displays all the details after booking the tickets.
